@@ -1,0 +1,233 @@
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* ---------- Header ---------- */
+.app__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  background: linear-gradient(90deg, #e0a458, #d97642);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app__subtitle {
+  margin: 0.5rem auto 0;
+  max-width: 46ch;
+  color: #b8a888;
+}
+
+.app__error {
+  background: #4a2016;
+  border: 1px solid #a3573a;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.app__loading,
+.empty-state {
+  text-align: center;
+  color: #b8a888;
+  padding: 2rem 0;
+}
+
+/* ---------- Summary statistics ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(224, 164, 88, 0.25);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.stat-card__value {
+  font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+  font-weight: 700;
+  color: #e0a458;
+  line-height: 1.1;
+}
+
+.stat-card__label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #b8a888;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 220px;
+}
+
+.control__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #b8a888;
+}
+
+.control__input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3ead9;
+  font-size: 1rem;
+}
+
+.control__input:focus {
+  outline: 2px solid #e0a458;
+  outline-offset: 1px;
+}
+
+/* The native dropdown list is rendered by the OS on a light background,
+   so give the options an explicit dark color to keep them readable. */
+.control__input option {
+  color: #2a2118;
+  background: #f3ead9;
+}
+
+.results-count {
+  color: #b8a888;
+  margin: 0.5rem 0 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Book list ---------- */
+.book-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-list__head,
+.book-row {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1.4fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.book-list__head {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8f8067;
+  padding-bottom: 0.25rem;
+}
+
+.book-row {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.book-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(224, 164, 88, 0.5);
+}
+
+.book-row__identity {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.book-row__cover {
+  width: 44px;
+  height: 66px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #1d2b33;
+}
+
+.book-row__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.book-row__title {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-row__author {
+  font-size: 0.85rem;
+  color: #b8a888;
+}
+
+.book-row__year,
+.book-row__editions {
+  font-size: 0.9rem;
+  color: #d6c9ad;
+}
+
+.book-row__rating {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.book-row__rating-count {
+  color: #8f8067;
+  font-size: 0.78rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .book-list__head {
+    display: none;
+  }
+
+  .book-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
